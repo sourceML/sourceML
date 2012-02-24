@@ -1,0 +1,31 @@
+#menu_top ul.menu
+{ margin: 5px 0px 0px 0px;
+  float: right;
+  position: relative;
+}
+
+#menu_top ul.menu li
+{ list-style-type: none;
+  margin-left: 15px;
+  float: left;
+}
+
+#menu_top ul.menu li a
+{ display: block;
+  padding: 5px 10px 5px 10px;
+}
+
+#menu_top ul.menu li ul
+{ position: absolute;
+  margin: 0px 0px 0px -15px;
+  z-index: 1;
+  display: none;
+}
+
+#menu_top ul.menu li ul li
+{ float: none;
+}
+
+#menu_top ul.menu li ul li a
+{ padding: 5px 10px 5px 10px;
+}

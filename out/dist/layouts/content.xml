@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layout>
+
+  <content page="content.php">
+    <sources>
+      <sources content="views/content/sources/sources.php" />
+      <derivations content="views/content/sources/sources.php" />
+      <xml_form content="views/content/sources/xml_form.php" />
+    </sources>
+  </content>
+
+</layout>

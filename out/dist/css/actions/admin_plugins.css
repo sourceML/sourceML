@@ -1,0 +1,32 @@
+ul.plugins
+{ list-style-type: none;
+  margin: 20px 10px;
+}
+
+ul.plugins li
+{ padding: 5px 10px;
+  margin: 10px;
+}
+
+ul.plugins p.folder
+{ float: right;
+  font-size: 0.9em;
+}
+
+ul.plugins li ul.plugin_links
+{ text-align: right;
+}
+
+ul.plugins li ul.plugin_links li
+{ display: inline;
+  padding: 1px 7px;
+  margin: 0;
+}
+
+ul.plugins li ul.plugin_links li input
+{ width: 2em;
+}
+
+ul.plugins li.buttons
+{ text-align: right;
+}

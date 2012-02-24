@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layout>
+
+  <reponses page="content.php">
+    <html>
+      <erreur page="html_reponse.php" content="views/erreur.php" />
+      <redirect_javascript page="html_reponse.php" content="views/redirect_javascript.php" />
+    </html>
+  </reponses>
+
+</layout>

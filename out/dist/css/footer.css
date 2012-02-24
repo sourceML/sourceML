@@ -1,0 +1,12 @@
+#footer .content
+{ height: 100px;
+}
+
+#footer .content p
+{ text-align: right;
+}
+
+#footer .content p#a_propos_links
+{ text-align: left;
+  float: left;
+}

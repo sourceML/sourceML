@@ -1,0 +1,19 @@
+# ------------------------------------------------------------------------------------
+# ces deux lignes de configuration servent sur le PC de dev pour tester avec php4.
+#
+# !!!
+#
+# avant de decommenter les deux lignes ci-dessous, adaptez-les a la configuration de
+# votre serveur et de votre installation de php.
+# ------------------------------------------------------------------------------------
+
+# Action php-script /cgi-bin/php
+# AddHandler php-script .php
+
+# ------------------------------------------------------------------------------------
+# sourceML utilise les "short tags" php pour l'affichage, dans les fichiers php du
+# dossier "out". Decommentez la ligne suivante si ces "short tags" ne sont pas
+# disponibles par defaut sur votre hebergement.
+# ------------------------------------------------------------------------------------
+
+# php_value short_open_tag On

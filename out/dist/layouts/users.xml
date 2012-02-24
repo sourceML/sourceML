@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layout>
+
+  <users page="index.php">
+    <identification content="views/users/identification.php" />
+    <compte page="compte.php" content="views/users/compte.php" />
+    <groupes page="compte.php" content="views/users/groupes/list.php">
+      <add content="views/users/groupes/add.php" />
+      <edit content="views/users/groupes/edit.php" />
+    </groupes>
+    <albums page="compte.php" content="views/users/albums/list.php">
+      <add content="views/users/albums/add.php" />
+      <edit content="views/users/albums/edit.php" />
+    </albums>
+    <morceaux page="compte.php" content="views/users/morceaux/list.php">
+      <add content="views/users/morceaux/add.php" />
+      <edit content="views/users/morceaux/edit.php" />
+    </morceaux>
+    <pistes page="compte.php" content="views/users/pistes/list.php">
+      <add content="views/users/pistes/add.php" />
+      <add_source content="views/users/pistes/add_source.php" />
+      <edit content="views/users/pistes/edit.php" />
+    </pistes>
+  </users>
+
+</layout>

@@ -1,0 +1,70 @@
+body
+{ font: normal 12px Verdana, Helvetica, Arial, sans-serif;
+}
+
+ul
+{ margin: 5px 5px 5px 15px;
+}
+
+h1
+{ margin: 5px
+}
+
+h2
+{ margin: 5px
+}
+
+h2 span
+{ font-weight: normal;
+  font-size: 0.8em;
+}
+
+h3
+{ margin: 5px
+}
+
+p
+{ margin: 5px
+  text-align: justify;
+}
+
+.messages
+{ margin: 10px;
+  padding: 10px;
+}
+
+.erreur
+{ margin: 50px 100px 50px 100px;
+  padding: 20px;
+}
+
+.redirect_message div
+{ margin: 50px 100px 50px 100px;
+  padding: 20px;
+}
+
+ul.list
+{ margin: 5px 10px 10px 15px;
+}
+
+ul.list li
+{ margin: 5px 5px 5px 15px;
+  padding: 5px;
+}
+
+.navig
+{ text-align: right;
+  padding: 3px;
+  margin: 10px;
+}
+
+.loading
+{ margin: 5px 0px 10px 15px;
+  padding: 0px;
+  height: 40px;
+  width: 40px;
+}
+
+.loading span
+{ display: none;
+}

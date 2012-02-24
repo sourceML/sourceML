@@ -1,0 +1,324 @@
+@import url("admin.css");
+
+/* ------------------------------- liste groupes ----------- */
+
+ul.groupes
+{ list-style-type: none;
+}
+
+ul.groupes li
+{ margin: 10px 10px 10px 100px;
+  padding: 0px;
+/*  float: left;*/
+  width: 370px;
+}
+
+ul.groupes li h4
+{ font-size: 16px;
+  margin: 0px;
+  padding: 0px;
+}
+
+ul.groupes li h4 a
+{ display: block;
+  padding: 5px;
+  width: 370px;
+  height: 100px;
+}
+
+ul.groupes li h4 a img
+{ display: block;
+  float: left;
+}
+
+ul.groupes li h4 a span
+{ float: right;
+  display: block;
+  padding: 3px;
+  text-align: right;
+  width: 238px;
+}
+
+ul.groupes li .infos li
+{ margin: 0px 0px 0px 5px;
+  padding: 0px;
+}
+
+/* ------------------------------- page groupe ----------- */
+
+.description
+{ padding: 15px 50px 15px 50px;
+  font-size: 0.9em;
+}
+
+.description p
+{ text-align: justify;
+}
+
+/* ------------------------------- page album ----------- */
+
+p#play_all
+{
+}
+
+p#play_all a
+{ display: block;
+  float: right;
+  margin: 0px 20px 15px 25px;
+  padding: 5px 7px 5px 37px;
+  line-height: 25px;
+}
+
+/* ------------------------------- groupe box (colonne) --- */
+
+.logo_groupe
+{ text-align: center;
+  height: 150px;
+  width: 220px;
+}
+
+#colonne ul#album_links
+{ margin: 32px 18px 0px 0px;
+}
+
+#colonne ul#album_links li
+{ list-style-type: none;
+  margin: 0px;
+  padding: 0px;
+}
+
+#colonne ul#album_links li a
+{ display: block;
+  padding: 5px 5px 0px 5px;
+}
+
+#colonne ul.menu_albums
+{ list-style-type: none;
+  margin-left: 0px;
+  margin: 0px 0px 10px 0px;
+}
+
+#colonne ul.menu_albums li
+{ margin-left: 0px;
+  width: 220px;
+  margin: 5px 0px 5px 0px;
+}
+
+#colonne ul.menu_albums li a
+{ display: block;
+  height: 90px;
+  padding: 5px;
+}
+
+#colonne ul.menu_albums li a span
+{ display: block;
+  float: right;
+  padding: 10px 5px 0px 5px;
+}
+
+ul#lien_contact
+{ margin: 20px 18px 0px 0px;
+  padding: 0px;
+}
+
+ul#lien_contact li
+{ list-style-type: none;
+  margin: 0px;
+  padding: 0px;
+}
+
+ul#lien_contact li a
+{ display: block;
+  text-align: right;
+  padding: 5px 5px 0px 5px;
+}
+
+/* ------------------------------- albums (page groupe) --- */
+
+#center ul#album_links
+{ margin: 32px 18px 0px 0px;
+}
+
+#center ul#album_links li
+{ list-style-type: none;
+  margin: 0px;
+  padding: 0px;
+}
+
+#center ul#album_links li a
+{ display: block;
+  padding: 5px 5px 0px 5px;
+}
+
+#center h3.menu_albums
+{ margin: 0px 0px 10px 10px;
+}
+
+#center ul.menu_albums
+{ list-style-type: none;
+  margin-left: 0px;
+  margin: 0px 0px 10px 10px;
+}
+
+#center ul.menu_albums li
+{ margin-left: 0px;
+  width: 220px;
+  margin: 5px 0px 5px 10px;
+/*  float: left;*/
+}
+
+#center ul.menu_albums li a
+{ display: block;
+  height: 90px;
+  padding: 5px;
+}
+
+#center ul.menu_albums li a span
+{ display: block;
+  float: right;
+  padding: 10px 5px 0px 5px;
+}
+
+/* ------------------------ blocs source -------------------- */
+
+ul.sources
+{ list-style-type: none;
+}
+
+ul.sources li
+{ margin: 10px 5px 0px 5px;
+  padding: 5px;
+}
+
+.playing_download
+{ padding: 5px;
+  margin-top: 10px;
+}
+
+.sources h5
+{ font-size: 1em;
+  padding: 3px 10px 3px 10px;
+}
+
+.sources h5 span
+{ font-weight: normal;
+}
+
+.sources h5 span.small
+{ font-size: 0.9em
+}
+
+.sources h5 .auteur
+{ float: right;
+  font-weight: normal;
+}
+
+.licence
+{ float: right;
+  margin: 3px 10px 0px 0px;
+  text-align: right;
+}
+
+ul.documents
+{ list-style-type: none;
+}
+
+ul.documents li
+{ margin: 0px;
+  padding: 0px;
+  clear: left;
+}
+
+/* ------ player */
+
+.player_progress
+{ width: 100%;
+  height: 2px;
+  font-size: 1px;
+  line-height: 1px;
+  overflow: hidden;
+  margin: 0px 0px 0px 0px;
+  position: relative;
+}
+
+.player_progress .loaded
+{ width: 0;
+  height: 2px;
+}
+
+.player_progress .position
+{ width: 0;
+  height: 2px;
+  position: absolute;
+  top: 0px;
+}
+
+.player_controls, .no_player
+{ margin: 2px 5px 0 0;
+  float: left;
+  width: 40px;
+}
+
+.player_controls a
+{ text-decoration: none;
+}
+
+.player_controls a.pause
+{ display: none;
+}
+
+.player_controls a.stop
+{ display: none;
+}
+
+/* ------ pistes / derivations */
+
+.block_list_toggle
+{ font-weight: normal;
+  font-size: 0.8em;
+  position: relative;
+  top: -2px;
+}
+
+.pistes
+{ margin: 0px 13px 10px 45px;
+  padding-left: 0px;
+}
+
+.derivation
+{ margin: 0px 13px 10px 45px;
+  padding-left: 0px;
+}
+
+.source_arbo h3
+{ padding-left: 35px;
+}
+
+.derivation h3
+{ font-size: 1em;
+  padding-left: 35px;
+  font-weight: normal;
+}
+
+.pistes h3
+{ font-size: 1em;
+  padding-left: 35px;
+  font-weight: normal;
+}
+
+.no_source
+{ margin: 5px 5px 10px 15px;
+  font-style: italic;
+  font-size: 0.9em;
+}
+
+.source_arbo ul.menu_source
+{ margin: 5px 0px 0px 0px;
+  padding: 0px;
+  list-style-type: none;
+}
+
+.source_arbo ul.menu_source li
+{ margin: 0px;
+  padding: 0px;
+}

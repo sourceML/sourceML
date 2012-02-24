@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layout>
+
+  <sources page="sources.php">
+    <groupe page="pages.php" content="views/sources/groupe/list.php">
+      <view page="groupe.php" content="views/sources/groupe/view.php" />
+    </groupe>
+    <album content="views/sources/album/list.php">
+      <view content="views/sources/album/view.php" />
+    </album>
+    <morceau content="views/sources/morceau/list.php">
+      <view content="views/sources/morceau/view.php" />
+    </morceau>
+    <piste content="views/sources/piste/list.php">
+      <view content="views/sources/piste/view.php" />
+    </piste>
+  </sources>
+
+</layout>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+
+  <bdd>
+    <table_prefix_code>#--</table_prefix_code>
+  </bdd>
+
+  <config>
+    <default_allow>1</default_allow>
+  </config>
+
+  <params>
+    <e>e</e>
+    <id>id</id>
+    <parent>parent</parent>
+    <user>user</user>
+    <status>status</status>
+    <from>from</from>
+    <start>start</start>
+    <alpha>alpha</alpha>
+    <groupe>groupe</groupe>
+    <album>album</album>
+    <morceau>morceau</morceau>
+    <piste>piste</piste>
+    <xml>xml</xml>
+    <derivation>derivation</derivation>
+    <reference>reference</reference>
+    <form>form</form>
+  </params>
+
+</config>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+
+  <groupe_view_albums type="checkbox" default="0"><![CDATA[Lister les albums sur la page d'un groupe]]></groupe_view_albums>
+  <navig_menu_top type="checkbox" default="0"><![CDATA[Afficher le menu de navigation des sources dans l'ent&ecirc;te]]></navig_menu_top>
+  <colonne type="checkbox" default="1"><![CDATA[Afficher la colonne]]></colonne>
+  <navig_menu type="checkbox" default="0"><![CDATA[Afficher le menu de navigation des sources dans la colonne]]></navig_menu>
+  <colonne_logo_groupe type="checkbox" default="1"><![CDATA[Afficher le logo du groupe courant dans la colonne]]></colonne_logo_groupe>
+  <albums_menu type="checkbox" default="1"><![CDATA[Afficher les albums du groupe courant dans la colonne]]></albums_menu>
+  <nom_groupe type="checkbox" default="1"><![CDATA[Afficher le nom du groupe courant dans la colonne]]></nom_groupe>
+
+</config>

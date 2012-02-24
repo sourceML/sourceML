@@ -1,0 +1,333 @@
+body
+{ background-color: #050505;
+  color: #777777;
+}
+
+a
+{ text-decoration: none;
+  color: #989383;
+}
+
+a img
+{ border: none;
+}
+
+a:hover
+{ color: #c0c0c0;
+}
+
+.navig
+{ color: #999999;
+  border: solid 1px #333333;
+  background-color: #1c1c1c;
+}
+
+.loading
+{ background-image: url("../icons/ajax-loader.gif");
+  background-repeat: no-repeat;
+  background-position: 5px 5px;
+}
+
+/* ------------------------- messages --------------- */
+
+.messages
+{ border: solid 1px #333333;
+  background-color: #1f1f1f;
+}
+
+.erreur
+{ border: solid 1px #333333;
+  background-color: #1f1f1f;
+}
+
+.redirect_message div
+{ border: solid 1px #333333;
+  background-color: #1f1f1f;
+}
+
+/* ------------------------- blocs generaux --------- */
+
+#header
+{ padding-top: 10px;
+}
+
+#header .content
+{ border-bottom: solid 1px #333333;
+}
+
+#colonne
+{ /*border-right: dashed 1px #555555; */
+}
+
+#footer .content
+{ border-top: solid 1px #1f1f1f;
+}
+
+#footer .content p
+{ color: #777777;
+}
+
+/* ----------------------------------- menu top ----- */
+
+#menu_top ul.menu li a
+{
+}
+
+#menu_top ul.menu li ul li a
+{ border-top: none;
+  border-right: solid 1px #333333;
+  border-bottom: none;
+  border-left: solid 1px #333333;
+  background-color: #050505;
+}
+
+#menu_top ul.menu li ul li.last a
+{ border-top: none;
+  border-right: solid 1px #333333;
+  border-bottom: solid 1px #333333;
+  border-left: solid 1px #333333;
+  background-color: #050505;
+}
+
+/* ----------------------------------- admin --------- */
+
+table.admin tr.hl td
+{ border: solid 1px #d1d1d1;
+}
+
+table.admin tr.hl:hover
+{ background-color: #151515;
+}
+
+input[type=text], input[type=file], input[type=password], textarea, select
+{ border: solid 1px #555555;
+  background-color: #1f1f1f;
+  color: #c0c0c0;
+}
+
+input[type=submit], a.button
+{ border: solid 1px #d1d1d1;
+  background-color: #333333;
+  color: #c0c0c0;
+}
+
+input[type=submit]:hover, a.button:hover
+{ border: solid 1px #d1d1d1;
+  background-color: #1f1f1f;
+}
+
+ul.admin
+{ border-bottom: dashed 1px #c0c0c0;
+}
+
+ul.admin_form_head
+{ border: solid 1px #252525;
+  background-color: #0a0a0a;
+  border-radius: 3px 3px 3px 3px;
+  -moz-border-radius: 3px 3px 3px 3px;
+}
+
+ul.admin_form_content ul.admin
+{ border-bottom: none;
+}
+
+ul.admin li a
+{ border: solid 1px #d1d1d1;
+  background-color: #333333;
+  color: #c0c0c0;
+}
+
+.admin_source_infos ul.admin li a
+{ border: none;
+  background-color: #101010;
+  color: #c0c0c0;
+}
+
+ul.admin li a.add
+{ background-image: url("../icons/add.gif");
+  background-repeat: no-repeat;
+  background-position: 3px 6px;
+}
+
+ul.admin li a:hover
+{ border: solid 1px #d1d1d1;
+  background-color: #1f1f1f;
+}
+
+.admin_source_infos
+{ border: solid 1px #191919;
+  background-color: #0a0a0a;
+  border-radius: 3px 3px 3px 3px;
+  -moz-border-radius: 3px 3px 3px 3px;
+}
+
+.admin_source_infos ul.admin li a:hover
+{ border: none;
+  background-color: #333333;
+  color: #c0c0c0;
+}
+
+#documents .document
+{ border: solid 1px #c0c0c0;
+}
+
+/* ------------------------------- plugins ----------- */
+
+ul.plugins li
+{ border: solid 1px #444444;
+}
+
+ul.plugins li.enabled
+{ background-color: #050505;
+}
+
+ul.plugins li.disabled
+{ background-color: #111111;
+}
+
+ul.plugins li.uninstalled
+{ background-color: #222222;
+}
+
+ul.plugins li ul.plugin_links li
+{ border-top: none;
+  border-right: none;
+  border-bottom: none;
+  border-left: solid 1px #444444;
+}
+
+ul.plugins li ul.plugin_links li input
+{ border: solid 1px #444444;
+}
+
+/* ------------------------------- liste groupes ----------- */
+
+ul.groupes li h4 a
+{ border: solid 1px #333333;
+  background-color: #1f1f1f;
+  border-radius: 3px 3px 3px 3px;
+  -moz-border-radius: 3px 3px 3px 3px;
+}
+
+/* ------------------------------- page album ----------- */
+
+p#play_all a
+{ border: solid 1px #333333;
+  border-radius: 3px 3px 3px 3px;
+  -moz-border-radius: 3px 3px 3px 3px;
+  background-image: url("../icons/ecouter.png");
+  background-repeat: no-repeat;
+  background-position: 6px 6px;
+  background-color: #101010;
+}
+
+/* ----------------------------------- sources --------- */
+
+ul.albums li a
+{ border: solid 1px #555555;
+}
+
+.logo_groupe
+{ border: solid 1px #333333;
+  background-color: #1f1f1f;
+  border-radius: 3px 3px 3px 3px;
+  -moz-border-radius: 3px 3px 3px 3px;
+}
+
+ul#lien_contact li a
+{ border-bottom: solid 1px #333333;
+}
+
+#colonne ul#album_links
+{ /*border-bottom: solid 1px #333333;*/
+}
+
+#colonne ul#album_links li
+{
+}
+
+#colonne ul.menu_albums li
+{ border: solid 1px #333333;
+  background-color: #1f1f1f;
+  border-radius: 3px 3px 3px 3px;
+  -moz-border-radius: 3px 3px 3px 3px;
+}
+
+#center ul.menu_albums li
+{ border: solid 1px #333333;
+  background-color: #1f1f1f;
+  border-radius: 3px 3px 3px 3px;
+  -moz-border-radius: 3px 3px 3px 3px;
+  float: left;
+}
+
+.track
+{ border: solid 1px #050505;
+  border-radius: 3px 3px 3px 3px;
+  -moz-border-radius: 3px 3px 3px 3px;
+}
+
+.track h5
+{ background-color: #0e0e0e;
+  border-radius: 3px 3px 0px 0px;
+  -moz-border-radius: 3px 3px 0px 0px;
+}
+
+.playing_track
+{ border: solid 1px #252525;
+  background-color: #0e0e0e;
+  border-radius: 3px 3px 3px 3px;
+  -moz-border-radius: 3px 3px 3px 3px;
+}
+
+.player_progress
+{ background-color: #333333;
+}
+
+.player_progress .loaded
+{ background-color: #2f2f2f;
+}
+
+.player_progress .position
+{ background-color: #555555;
+}
+
+.player_controls a img
+{ border: none;
+}
+
+.source_arbo ul.menu_source
+{ float: right;
+  margin: 0px 10px 1px 0px;
+}
+
+.source_arbo ul.menu_source li
+{ float: right;
+  padding: 1px;
+}
+
+.source_arbo ul.menu_source li a
+{ display: block;
+  text-align: center;
+  background-color: #151515;
+  border-radius: 3px 3px 0px 0px;
+  -moz-border-radius: 3px 3px 0px 0px;
+  padding: 2px 5px 2px 5px;
+}
+
+.source_arbo ul.menu_source li a:hover
+{
+}
+
+.source_arbo ul.menu_source li.icon a
+{ border: none;
+  padding: 2px 2px 2px 2px;
+}
+
+.pistes
+{ border-left: none;
+}
+
+.derivation
+{ border-left: none;
+}

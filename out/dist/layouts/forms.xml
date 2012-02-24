@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layout>
+
+  <forms page="pages.php">
+    <contact>
+      <index content="views/forms/contact/index.php" />
+      <groupe page="sources.php" content="views/forms/contact/groupe.php" />
+    </contact>
+  </forms>
+
+</layout>

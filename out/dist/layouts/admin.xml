@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layout>
+
+  <admin page="admin.php">
+    <index content="views/admin/index.php" />
+    <users>
+      <index content="views/admin/users/list.php" />
+      <add content="views/admin/users/add.php" />
+      <edit content="views/admin/users/edit.php" />
+    </users>
+    <licences>
+      <index content="views/admin/licences/list.php" />
+      <add content="views/admin/licences/add.php" />
+      <edit content="views/admin/licences/edit.php" />
+    </licences>
+    <config content="views/admin/config.php" />
+    <cache content="views/admin/cache.php" />
+    <maintenance content="views/admin/maintenance.php" />
+    <plugins>
+      <index content="views/admin/plugins/list.php" />
+    </plugins>
+  </admin>
+
+</layout>

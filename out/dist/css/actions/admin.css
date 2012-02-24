@@ -1,0 +1,199 @@
+table.admin
+{ width: 100%;
+}
+
+table.admin tr.hl td
+{ padding: 3px;
+}
+
+table.admin td.action
+{ text-align: center;
+  width: 50px;
+}
+
+ul.admin
+{ list-style-type: none;
+  margin: 10px 10px 20px 10px;
+  text-align: right;
+  padding-bottom: 10px;
+}
+
+ul.admin li
+{ display: inline;
+}
+
+ul.admin li a
+{ padding: 3px 7px 3px 7px;
+}
+
+ul li a.add
+{ padding: 3px 7px 3px 18px;
+}
+
+ul.admin li.admin_form_title
+{ display: block;
+  float: left;
+  padding: 0px 7px 3px 7px;
+}
+
+ul.form
+{ clear: both;
+  list-style-type: none;
+}
+
+ul.form li
+{ clear: both;
+  padding: 5px;
+}
+
+ul.form li label
+{ float: left;
+  display: block;
+  width: 100px;
+  text-align: right;
+  padding: 0 15px 0 15px;
+}
+
+ul.form li div p
+{ float: left;
+  display: block;
+  width: 350px;
+  text-align: left;
+  padding: 0 0px 15px 0px;
+}
+
+ul.form li p span
+{ display: block;
+  padding: 5px;
+  font-size: 0.9em;
+}
+
+ul.admin_form_head
+{ clear: both;
+  list-style-type: none; 
+  margin: 10px 0px 0px 0px;
+}
+
+ul.admin_form_head li
+{ clear: both;
+  padding: 5px;
+  text-align: right;
+  line-height: 20px;
+}
+
+ul.admin_form_head li input
+{ margin: 0px 10px 0px 10px;
+}
+
+ul.admin_form_content
+{ list-style-type: none; 
+  margin: 0px 0px 0px 0px;
+  padding: 10px 0px 10px 0px;
+}
+
+ul.admin_form_content ul.admin
+{ list-style-type: none;
+  margin: 10px 10px 20px 10px;
+  text-align: right;
+  padding-bottom: 10px;
+}
+
+ul.admin_form_content ul.admin li
+{ display: inline;
+}
+
+ul.admin_form_content ul.admin li a
+{ padding: 3px 7px 3px 7px;
+}
+
+ul.admin_form_content ul li a.add
+{ padding: 3px 7px 3px 18px;
+}
+
+ul.admin_form_content ul.admin li.admin_form_title
+{ display: block;
+  float: left;
+  padding: 0px 7px 3px 7px;
+}
+
+.admin_source_infos
+{ margin: 0px 10px 10px 20px;
+}
+
+.admin_source_infos ul.admin_source_head
+{ list-style-type: none;
+  margin: 0px 0px 0px 0px;
+  text-align: right;
+  padding-bottom: 10px;
+  padding-top: 5px;
+}
+
+ul.admin_source_head li
+{ display: inline;
+}
+
+ul.admin_source_head li a
+{ padding: 3px 7px 3px 7px;
+}
+
+ul.admin_source_head li.admin_form_title
+{ display: block;
+  float: left;
+  padding: 0px 7px 3px 7px;
+  font-size: 1.2em;
+}
+
+.admin_source_url
+{ margin: 10px 0px 0px 20px;
+}
+
+input[type=text], input[type=file], input[type=password], textarea, select
+{ padding: 3px;
+}
+
+input[type=submit], a.button
+{ padding: 3px 7px 3px 7px;
+  cursor: pointer;
+}
+
+ul.form li.buttons
+{ text-align: center;
+}
+
+.tinymce
+{ width: 500px;
+  height: 400px;
+}
+
+.document
+{ margin: 5px;
+  padding: 5px;
+}
+
+.document .delete
+{ float: right;
+}
+
+.document .clear
+{ height: 5px;
+}
+
+.xml_edit_content
+{ display: block;
+  margin: 5px 10px 30px 0px;
+  text-align: right;
+}
+
+.xml_edit_content textarea
+{ width: 97%;
+}
+
+ul.xml_infos
+{ margin: 10px 10px 0px 20px;
+}
+
+ul.xml_infos li
+{ padding: 5px;
+  margin: 0px 0px 0px 20px;
+}
+

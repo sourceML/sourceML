@@ -1,0 +1,36 @@
+#main .content
+{ padding: 10px 0px 10px 0px;
+  width: 800px;
+}
+
+#identification_page
+{ padding-left: 400px;
+}
+
+#colonne
+{ float: left;
+  width: 240px;
+  padding: 0px 0px 50px 0px;
+}
+
+#center
+{ float: left;
+  width: 540px;
+  padding: 10px;
+}
+
+#center.no_colonne
+{ width: 800px;
+}
+
+#colonne ul.menu
+{ margin-left: 15px;
+}
+
+#colonne ul.menu li
+{ margin-left: 15px;
+}
+
+#colonne ul.navig_menu
+{ margin-top: 20px;
+}

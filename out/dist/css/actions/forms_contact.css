@@ -1,0 +1,32 @@
+@import url("sources.css");
+
+#contact form
+{ margin: 20px 0px 10px 0px;
+}
+
+#contact form .ptitcaptcha img
+{ float: left;
+  margin: 0px 10px 0px 0px;
+}
+
+#contact ul.form li label
+{ float: left;
+  display: block;
+  width: 50px;
+  text-align: right;
+  padding: 0 15px 0 15px;
+}
+
+#contact ul.form li p
+{ float: left;
+  display: block;
+  width: 380px;
+  text-align: left;
+  padding: 0 15px 5px 15px;
+}
+
+#contact ul.form li p span
+{ display: block;
+  padding: 5px;
+  font-size: 0.9em;
+}
