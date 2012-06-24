@@ -259,7 +259,7 @@
           }
           else
           { if(isset($this->layout["index"]["page"]))
-            { $content = $this->layout["index"]["page"];
+            { $page = $this->layout["index"]["page"];
             }
           }
         }
