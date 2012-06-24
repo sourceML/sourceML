@@ -10,7 +10,7 @@
     <script type="text/javascript"> site_url = "<?= $this->path("web") ?>"; </script>
     <script type="text/javascript" src="<?= $this->out_file("js/md5.js") ?>"></script>
     <script type="text/javascript" src="<?= $this->out_file("js/login.js") ?>"></script>
-    <script type="text/javascript" src="<?= $this->out_file("js/jquery-1.5.2.min.js") ?>"></script>
+    <script type="text/javascript" src="<?= $this->out_file("js/jquery-1.7.2.min.js") ?>"></script>
     <script type="text/javascript" src="<?= $this->out_file("js/jquery.colorbox-min.js") ?>"></script>
     <script type="text/javascript" src="<?= $this->out_file("js/jquery-ui-1.8.12.custom.min.js") ?>"></script>
     <script type="text/javascript" src="<?= $this->out_file("js/menu.js") ?>"></script>
