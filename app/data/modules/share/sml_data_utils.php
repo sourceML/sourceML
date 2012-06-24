@@ -3,7 +3,12 @@
   class sml_data_utils extends sml_data
   {
 
-    function eq($content) { return (isset($content) ? "'".str_replace("'", "\'", $content)."'" : "NULL"); }
+    function eq($content, $ADD_QUOTES = true){
+      if($ADD_QUOTES){
+        return (isset($content) ? "'".str_replace("'", "\'", $content)."'" : "NULL");
+      }
+      return $content;
+    }
 
     /*
       fonction pour ordonner les resultats des requetes sur

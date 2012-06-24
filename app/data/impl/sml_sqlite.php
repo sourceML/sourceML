@@ -48,6 +48,12 @@
       return null;
     }
 
+    function field_exists($table_name, $field_name){
+      $sql =  "SELECT ".$field_name." from ".$table_name." LIMIT 1";
+      $rst = $this->query($sql);
+      return isset($rst);
+    }
+
     function query($query_string)
     { if(!$this->link)
       { if(!$this->connect($this->path, $this->file)) return null;

@@ -113,22 +113,36 @@
       $id_composition = isset($params["id_composition"]) ? $params["id_composition"] : null;
       $id_source_derivation = isset($params["id_source_derivation"]) ? $params["id_source_derivation"] : null;
       $id_licence = isset($params["id_licence"]) ? $params["id_licence"] : null;
-
+      $order_by = isset($params["order_by"]) ? $params["order_by"] : "ordre";
+      $order = isset($params["order"]) ? $params["order"] : "ASC";
       $sgbd = $this->sgbd();
       $env = $this->env();
+      $ORDER_FIELD_EXISTS = $sgbd->field_exists("#--sources", $this->eq($order_by, false));
+      if(!isset($ORDER_FIELD_EXISTS)) return false;
+      $ORDER_FROM_SOURCES_INFOS = !$ORDER_FIELD_EXISTS;
       $sources = array("list" => array(), "total" => 0);
       $COUNT_SELECT = "SELECT count(*) as n";
-      $SELECT = "SELECT #--sources.*, #--source_infos.`value` as ordre";
+      $SELECT = "SELECT #--sources.*";
+      if($ORDER_FROM_SOURCES_INFOS){
+        if($order_by == "ordre"){
+          $SELECT .= ", (0 + #--source_infos.`value`) as ordre";
+        }
+        else{
+          $SELECT .= ", #--source_infos.`value` as ".$this->eq($order_by, false);
+        }
+      }
       $FROM = "#--sources";
       if(isset($id_user)) $FROM .= ", #--groupes, #--source_groupes";
       elseif(isset($id_groupe)) $FROM .= ", #--source_groupes";
       if(isset($id_source)) $FROM .= ", #--source_compositions";
       elseif(isset($id_composition) && $id_composition) $FROM .= ", #--source_compositions";
       if(isset($id_source_derivation)) $FROM .= ", #--source_derivations";
-      $FROM =
-       " FROM (".$FROM.")"
-      ." LEFT JOIN #--source_infos"
-      ." ON (#--source_infos.id_source=#--sources.id AND #--source_infos.`key`='ordre')";
+      $FROM = " FROM (".$FROM.")";
+      if($ORDER_FROM_SOURCES_INFOS){
+        $FROM .=
+          " LEFT JOIN #--source_infos"
+         ." ON (#--source_infos.id_source=#--sources.id AND #--source_infos.`key`=".$this->eq($order_by).")";
+      }
       $WHERE = "";
       if(isset($id_user)) $WHERE .=
        ($WHERE ? " AND " : " WHERE ")
@@ -173,7 +187,7 @@
       if(isset($id_licence)) $WHERE .=
        ($WHERE ? " AND " : " WHERE ")
       ." #--sources.licence=".$this->eq($id_licence);
-      $ORDER_BY = " ORDER BY #--source_infos.`value`";
+      $ORDER_BY = " ORDER BY ".$order_by." ".$order;
       $LIMIT = (isset($start) && $env->config("max_list") ? " LIMIT ".$env->config("max_list")." OFFSET ".$start : "");
       $sql = $COUNT_SELECT.$FROM.$WHERE;
       $rst = $sgbd->query($sql);

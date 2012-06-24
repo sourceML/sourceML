@@ -24,36 +24,49 @@
     #                                                                               SQL
     #
 
-    function table_exists($table_name)
-    { return $this->sgbd_impl->table_exists
-      ( ($prefix_codes = array_keys($this->env->bdd("table_prefix"))) ?
+    function table_exists($table_name){
+      return $this->sgbd_impl->table_exists(
+        (
+          $prefix_codes = array_keys($this->env->bdd("table_prefix"))) ?
           str_replace($prefix_codes, array_values($this->env->bdd("table_prefix")), $table_name)
         : $table_name
       );
     }
 
-    function query($sql)
-    { return $this->sgbd_impl->query
-      ( ($prefix_codes = array_keys($this->env->bdd("table_prefix"))) ?
+    function field_exists($table_name, $field_name){
+      return $this->sgbd_impl->field_exists(
+        (
+          $prefix_codes = array_keys($this->env->bdd("table_prefix"))) ?
+          str_replace($prefix_codes, array_values($this->env->bdd("table_prefix")), $table_name)
+        : $table_name,
+        $field_name
+      );
+
+    }
+
+    function query($sql){
+      return $this->sgbd_impl->query(
+        (
+          $prefix_codes = array_keys($this->env->bdd("table_prefix"))) ?
           str_replace($prefix_codes, array_values($this->env->bdd("table_prefix")), $sql)
         : $sql
       );
     }
 
-    function insert_id()
-    { return $this->sgbd_impl->insert_id();
+    function insert_id(){
+      return $this->sgbd_impl->insert_id();
     }
 
-    function fetch_assoc($rst)
-    { return $this->sgbd_impl->fetch_assoc($rst);
+    function fetch_assoc($rst){
+      return $this->sgbd_impl->fetch_assoc($rst);
     }
 
-    function free_result($rst)
-    { return $this->sgbd_impl->free_result($rst);
+    function free_result($rst){
+      return $this->sgbd_impl->free_result($rst);
     }
 
-    function close()
-    { return $this->sgbd_impl->close();
+    function close(){
+      return $this->sgbd_impl->close();
     }
 
     # ---------------------------------------------------------------------------------

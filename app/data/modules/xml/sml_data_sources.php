@@ -107,6 +107,8 @@
       $id_composition = isset($params["id_composition"]) ? $params["id_composition"] : null;
       $id_source_derivation = isset($params["id_source_derivation"]) ? $params["id_source_derivation"] : null;
       $id_licence = isset($params["id_licence"]) ? $params["id_licence"] : null;
+      $order_by = isset($params["order_by"]) ? $params["order_by"] : "ordre";
+      $order = isset($params["order"]) ? $params["order"] : "ASC";
 
       // -------------------------------------------------------------------------------
       //                                                 infos pour verifier les filtres
@@ -169,7 +171,7 @@
         }
         $sgbd->close_data($rst);
         if($res !== false)
-        { $res = $this->ordonne($res, "ordre");
+        { $res = $this->ordonne($res, $order_by, $order);
 
           foreach($res as $id_res => $v_rst)
           { // ------------------------------- par defaut

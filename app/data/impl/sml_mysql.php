@@ -53,6 +53,19 @@
       return null;
     }
 
+    function field_exists($table_name, $field_name)
+    { $sql = "SHOW COLUMNS FROM ".$table_name." LIKE '".$field_name."'";
+      $rst = $this->query($sql);
+      if(isset($rst))
+      { $exists = false;
+        $v_rst = $this->fetch_assoc($rst);
+        if($v_rst) $exists = true;
+        $this->free_result($rst);
+        return $exists;
+      }
+      return null;
+    }
+
     function query($query_string)
     { if(!$this->link)
       { if(!$this->connect($this->host, $this->base, $this->user, $this->password)) return null;
