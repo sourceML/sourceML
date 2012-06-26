@@ -10,6 +10,8 @@
   var show_xml_links = {};
 
   var tracks = {};
+  var tracks_ids = [];
+  var last_track_index = -1;
   var current_track = false;
   var has_started = false;
   var autoplay_next = false;
@@ -29,13 +31,13 @@
       { _stop();
         var FOUND = false;
         if(autoplay_next)
-        { for(var track in tracks)
+        { for(var i = 0; i < tracks_ids.length; i++)
           { if(FOUND)
-            { play(track);
+            { play(tracks_ids[i]);
               break;
             }
             else
-            { if(track == current_track) FOUND = true;
+            { if(tracks_ids[i] == current_track) FOUND = true;
             }
           }
         }
@@ -46,10 +48,16 @@
 
   function get_player() { return $("#player").get(0); }
 
+  function add_track(track_id, track_url){
+    tracks[track_id] = track_url;
+    last_track_index++;
+    tracks_ids[last_track_index] = track_id;
+  };
+
   function play_all()
   { autoplay_next = true;
-    for(var track in tracks)
-    { play(track);
+    for(var i = 0; i < tracks_ids.length; i++)
+    { play(tracks_ids[i]);
       break;
     }
   }

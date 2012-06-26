@@ -17,7 +17,7 @@
 
     <li>
       <?php if($mp3_url) : ?>
-      <script type="text/javascript">tracks["<?= $source["id"]  ?>"] = "<?= $mp3_url ?>";</script>
+      <script type="text/javascript">add_track("<?= $source["id"]  ?>", "<?= $mp3_url ?>");</script>
       <div class="player_controls">
         <a class="play" href="#" onclick="play('<?= $source["id"] ?>'); return false;"><img src="<?= $this->out_file("icons/play.png") ?>" alt="play" /></a>
         <a class="pause" href="#" onclick="pause(); return false;"><img src="<?= $this->out_file("icons/pause.png") ?>" alt="pause" /></a>
