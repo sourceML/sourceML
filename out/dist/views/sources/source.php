@@ -1,4 +1,4 @@
-<?php if($source) : $data = $this->data(); ?>
+<?php if($source) : ?>
 
 <li class="track" id="track_<?= $source["id"] ?>">
 

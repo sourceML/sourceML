@@ -22,17 +22,17 @@
       return $pathes;
     }
 
-    function out_file_exists($file, $PRIORITE = "DESC")
-    { $out_file = $this->_out_file($file, $PRIORITE);
+    function out_file_exists($file, $PRIORITE = "DESC"){
+      $out_file = $this->p_out_file($file, $PRIORITE);
       return $out_file ? true : false;
     }
 
     function out_file($file, $PRIORITE = "DESC")
-    { $out_file = $this->_out_file($file, $PRIORITE);
+    { $out_file = $this->p_out_file($file, $PRIORITE);
       return $out_file ? $out_file : $file;
     }
 
-    function _out_file($file, $PRIORITE = "DESC")
+    function p_out_file($file, $PRIORITE = "DESC")
     { $out_file = false;
       if($PRIORITE == "ASC")
       { $tmp_out_file = $this->path("out").$this->config("out").$file;
@@ -134,6 +134,7 @@
           { require $functions_file;
           }
         }
+        if($layout) $data = $this->data();
         if($layout["page"])
         { if($this->out_file_exists($layout["page"])) require $this->out_file($layout["page"]);
         }
@@ -145,12 +146,12 @@
 
     function init_layout()
     { $this->layout = array();
-      $this->_init_layout("index");
-      if(($mod = $this->etat("mod")) != "index") $this->_init_layout($mod);
+      $this->p_init_layout("index");
+      if(($mod = $this->etat("mod")) != "index") $this->p_init_layout($mod);
       return $this->get_layout();
     }
 
-    function _init_layout($mod)
+    function p_init_layout($mod)
     { if(($plugins = $this->plugins("ASC")) !== false)
       { $layout_file = false;
         $tmp_layout_file = $this->path("out").$this->config("out")."layouts/".$mod.".xml";

@@ -1,6 +1,5 @@
 <?php
 
-  $data = $this->data();
   if($this->out_config("groupe_view_albums")) $this->set_config(array("out_albums_menu" => ""));
 
 ?><!DOCTYPE html>

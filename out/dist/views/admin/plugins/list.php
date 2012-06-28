@@ -4,7 +4,7 @@
 
 <form name="plugins_form" action="<?= $this->url("admin/plugins") ?>" method="post">
   <ul class="plugins">
-  <?php $data = $this->data(); foreach($this->out["plugins"] as $plugin_name => $plugin) : ?>
+  <?php foreach($this->out["plugins"] as $plugin_name => $plugin) : ?>
     <li class="<?= $plugin["installed"] ? ($plugin["enabled"] ? "enabled" : "disabled") : "uninstalled" ?>">
       <div>
         <p class="folder">dossier <strong><?= $plugin_name ?></strong></p>

@@ -1,5 +1,3 @@
-  var loaded = false;
-
   $(document).ready
   ( function()
     { loaded = true;
@@ -7,7 +5,11 @@
     }
   );
 
-  var show_xml_links = {};
+  var loaded = false;
+
+  // -----------------------------------------------------------------
+  //                                                      player audio
+  //
 
   var tracks = {};
   var tracks_ids = [];
@@ -17,7 +19,6 @@
   var autoplay_next = false;
 
   var player_listener = new Object();
-
   player_listener.onInit = function() { this.position = 0; };
 
   player_listener.onUpdate = function()
@@ -46,8 +47,6 @@
     }
   };
 
-  function get_player() { return $("#player").get(0); }
-
   function add_track(track_id, track_url){
     tracks[track_id] = track_url;
     last_track_index++;
@@ -61,6 +60,12 @@
       break;
     }
   }
+
+  // -----------------------------------------------------------------
+  //                                         impl play / pause / stop
+  //
+
+  function get_player() { return $("#player").get(0); }
 
   function play(track)
   { if(current_track != track)
@@ -108,9 +113,30 @@
     }
   }
 
+  // -----------------------------------------------------------------
+  //                                                        source xml
+  //
+
+  var show_xml_links = {};
+
   function show_xml(id)
   { alert(xml_contents[id]);
   }
+
+  function init_show_xml_links()
+  { for(var i in show_xml_links)
+    { $("#show_xml_" + i).colorbox();
+    }
+  }
+
+  function set_show_xml_links(i)
+  { if(loaded) $("#show_xml_" + i).colorbox();
+    else show_xml_links[i] = true;
+  }
+
+  // -----------------------------------------------------------------
+  //                                             sources / derivations
+  //
 
   function toggle_source_list(id_block)
   { var content = $("#source_list_" + id_block + " .pistes").html();
@@ -154,15 +180,4 @@
         }
       );
     }
-  }
-
-  function init_show_xml_links()
-  { for(var i in show_xml_links)
-    { $("#show_xml_" + i).colorbox();
-    }
-  }
-
-  function set_show_xml_links(i)
-  { if(loaded) $("#show_xml_" + i).colorbox();
-    else show_xml_links[i] = true;
   }

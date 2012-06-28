@@ -1,8 +1,4 @@
-<?php
-
-  $data = $this->data();
-
-?><!DOCTYPE html>
+<!DOCTYPE html>
 <html dir="ltr" lang="fr-FR">
   <head>
     <?php require $this->out_file("views/head.php"); ?>

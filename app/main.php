@@ -1,13 +1,13 @@
 <?php
 
-  function sourceml($config_file, $etat = "")
-  { require $config_file;
+  function sourceml($config_file, $etat = ""){
+    require $config_file;
     $PATHES["app"] .= $PATHES["app"] && substr($PATHES["app"], -1) != "/" ? "/" : "";
     $PATHES["libs"] .= $PATHES["libs"] && substr($PATHES["libs"], -1) != "/" ? "/" : "";
-    if($sxml_class_file = (file_exists($PATHES["libs"]."sxml.php") ? $PATHES["libs"]."sxml.php" : ""))
-    { if($empty_class_file = (file_exists($PATHES["libs"]."empty_class.php") ? $PATHES["libs"]."empty_class.php" : ""))
-      { if($env_class_file = (file_exists($PATHES["app"]."env/sml_env.php") ? $PATHES["app"]."env/sml_env.php" : ""))
-        { require $sxml_class_file;
+    if($sxml_class_file = (file_exists($PATHES["libs"]."sxml.php") ? $PATHES["libs"]."sxml.php" : "")){
+      if($empty_class_file = (file_exists($PATHES["libs"]."empty_class.php") ? $PATHES["libs"]."empty_class.php" : "")){
+        if($env_class_file = (file_exists($PATHES["app"]."env/sml_env.php") ? $PATHES["app"]."env/sml_env.php" : "")){
+          require $sxml_class_file;
           require $empty_class_file;
           require $env_class_file;
           $env = new sml_env(true);
@@ -29,8 +29,8 @@
     return false;
   }
 
-  function sml_display($env)
-  { if($env->etat_is_valid()) $env->render_layout($env->init_layout());
+  function sml_display($env){
+    if($env->etat_is_valid()) $env->render_layout($env->init_layout());
   }
 
 ?>

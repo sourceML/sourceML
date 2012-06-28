@@ -1,4 +1,4 @@
-<?php if($this->out["groupes"]["list"]) : $data = $this->data(); ?>
+<?php if($this->out["groupes"]["list"]) : ?>
 
 <?php $items = "groupes"; $legend = "groupes"; require $this->out_file("views/navig.php"); ?>
 

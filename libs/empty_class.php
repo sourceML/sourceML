@@ -31,34 +31,33 @@
 
 */
 
-  class empty_class
-  {
+  class empty_class{
 
     var $root_inst;
     var $modules;
 
-    function empty_class($root_inst)
-    { if($root_inst === true) $this->root_inst = $this;
+    function empty_class($root_inst){
+      if($root_inst === true) $this->root_inst = $this;
       else $this->root_inst = $root_inst;
     }
 
-    function load_modules($modules_path, $current_modules, $core_modules = null)
-    { $this->_load_modules($modules_path, $current_modules, $this->root_inst, true);
-      if(isset($core_modules) && $current_modules != $core_modules)
-      { $this->_load_modules($modules_path, $core_modules, $this->root_inst, true);
+    function load_modules($modules_path, $current_modules, $core_modules = null){
+      $this->_load_modules($modules_path, $current_modules, $this->root_inst, true);
+      if(isset($core_modules) && $current_modules != $core_modules){
+        $this->_load_modules($modules_path, $core_modules, $this->root_inst, true);
       }
     }
 
-    function _load_modules($modules_path, $modules_path_suffixe, $root_inst, $recursif = false)
-    { if(file_exists($modules_path.$modules_path_suffixe) && $dh = opendir($modules_path.$modules_path_suffixe))
-      { while(($file = readdir($dh)) !== false)
-        { if(is_dir($modules_path.$modules_path_suffixe.$file))
-          { if($recursif && substr($file, 0, 1) != ".")
-            { $this->_load_modules($modules_path, $modules_path_suffixe.$file."/", $root_inst, $recursif);
+    function _load_modules($modules_path, $modules_path_suffixe, $root_inst, $recursif = false){
+      if(file_exists($modules_path.$modules_path_suffixe) && $dh = opendir($modules_path.$modules_path_suffixe)){
+        while(($file = readdir($dh)) !== false){
+          if(is_dir($modules_path.$modules_path_suffixe.$file)){
+            if($recursif && substr($file, 0, 1) != "."){
+              $this->_load_modules($modules_path, $modules_path_suffixe.$file."/", $root_inst, $recursif);
             }
           }
-          elseif(strcasecmp(substr($file, -4), ".php") == 0)
-          { $this->load($modules_path.$modules_path_suffixe.$file, $root_inst);
+          elseif(strcasecmp(substr($file, -4), ".php") == 0){
+            $this->load($modules_path.$modules_path_suffixe.$file, $root_inst);
           }
         }
         closedir($dh);

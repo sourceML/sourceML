@@ -1,5 +1,5 @@
 
-                         sourceML 0.13.1
+                         sourceML 0.13.1.dev
 
 
 un CMS en GNU/GPL pour la publication de sources musicales.

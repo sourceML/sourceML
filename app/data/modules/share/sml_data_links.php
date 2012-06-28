@@ -9,22 +9,21 @@
       return true;
     }
 
-    function load_link(&$links, $v_path, $url, $intitule = "", $position = 0)
-    { if($path_item = array_shift($v_path))
-      { if(!isset($links[$path_item])) $links[$path_item] = array
-        ( "nom" => $path_item,
-          "url" => $v_path ? null : $url,
-          "intitule" => $v_path ? null : $intitule,
-          "subs" => array(),
-          "position" => 0
-        );
-        if($v_path) $this->load_link($links[$path_item]["subs"], $v_path, $url, $intitule, $position);
-        else
-        { $links[$path_item]["nom"] = $path_item;
-          $links[$path_item]["url"] = $url;
-          $links[$path_item]["intitule"] = $intitule;
-          $links[$path_item]["position"] = $position;
+    function load_link($v_path, $url, $intitule = "", $position = 0){
+      $pathes_item_left = count($v_path);
+      $current =& $this->links;
+      foreach($v_path as $path_item){
+        $pathes_item_left--;
+        if(!isset($current[$path_item])){
+          $current[$path_item] = array(
+            "nom" => $path_item,
+            "url" => $pathes_item_left ? null : $url,
+            "intitule" => $pathes_item_left ? null : $intitule,
+            "subs" => array(),
+            "position" => 0
+          );
         }
+        $current =& $current[$path_item]["subs"];
       }
     }
 
@@ -43,31 +42,31 @@
       return $v_path && $SYNTAX_OK ? $v_path : false;
     }
 
-    function get_link($path = null)
-    { if(!isset($this->links)) $this->init_links();
-      if($this->links !== false)
-      { if(!isset($path)) return $this->links;
-        if($v_path = $this->valid_link_path($path))
-        { return $this->_get_link($this->links, $v_path);
+    function get_link($path = null){
+      if(!isset($this->links)) $this->init_links();
+      if($this->links !== false){
+        if(!isset($path)) return $this->links;
+        if($v_path = $this->valid_link_path($path)){
+          return $this->p_get_link($this->links, $v_path);
         }
       }
       return false;
     }
 
-    function _get_link($links, $v_path)
+    function p_get_link($links, $v_path)
     { if($path_item = array_shift($v_path))
       { if(isset($links[$path_item]))
-        { if($v_path) return $this->_get_link($links[$path_item]["subs"], $v_path);
+        { if($v_path) return $this->p_get_link($links[$path_item]["subs"], $v_path);
           else return $links[$path_item];
         }
         else return false;
       }
     }
 
-    function set_link($path, $url, $intitule = "", $position = 0)
-    { if(!isset($this->links)) $this->init_links();
-      if($v_path = $this->valid_link_path($path))
-      { $this->load_link($this->links, $v_path, $url, $intitule, $position);
+    function set_link($path, $url, $intitule = "", $position = 0){
+      if(!isset($this->links)) $this->init_links();
+      if($v_path = $this->valid_link_path($path)){
+        $this->load_link($v_path, $url, $intitule, $position);
         $this->links = $this->ordonne_links($this->links);
       }
     }
