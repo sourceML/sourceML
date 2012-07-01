@@ -10,22 +10,32 @@
   <?php
 
     foreach($documents as $id_document => $document) :
-    $mp3_url = "";
-    if(strtolower(substr($document["url"], -4)) == ".mp3") $mp3_url = $document["url"];
+    $ext = "";
+    $audio_type = "";
+    if(($k = strrpos($document["url"], ".")) !== false) $ext = strtolower(substr($document["url"], $k + 1));
+    switch($ext){
+      case "ogg":
+        $audio_type = "audio/ogg";
+        break;
+      case "mp3":
+        $audio_type = "audio/mp3";
+        break;
+    }
 
   ?>
 
-    <li>
-      <?php if($mp3_url) : ?>
-      <script type="text/javascript">add_track("<?= $source["id"]  ?>", "<?= $mp3_url ?>");</script>
-      <div class="player_controls">
-        <a class="play" href="#" onclick="play('<?= $source["id"] ?>'); return false;"><img src="<?= $this->out_file("icons/play.png") ?>" alt="play" /></a>
-        <a class="pause" href="#" onclick="pause(); return false;"><img src="<?= $this->out_file("icons/pause.png") ?>" alt="pause" /></a>
-        <a class="stop" href="#" onclick="stop(); return false;"><img src="<?= $this->out_file("icons/stop.png") ?>" alt="stop" /></a>
+    <li id="document_<?php echo $source["id"]."_".$id_document ?>">
+      <?php if($audio_type) : ?>
+      <div class="player_controls player" id="player_<?php echo $source["id"]."_".$id_document ?>">
+        <a class="play" href="#"><img src="<?= $this->out_file("icons/play.png") ?>" alt="play" /></a>
+        <a class="pause" href="#"><img src="<?= $this->out_file("icons/pause.png") ?>" alt="pause" /></a>
+        <a class="stop" href="#"><img src="<?= $this->out_file("icons/stop.png") ?>" alt="stop" /></a>
+        <audio id="audio_<?= $source["id"]."_".$id_document ?>">
+          <source src="<?= $document["url"] ?>" type="<?= $audio_type ?>">
+        </audio>
       </div>
-      <?php else : ?>
-      <div class="no_player"><!-- --></div>
       <?php endif; ?>
+      <div class="no_player"><!-- --></div>
       <a href="<?= $document["url"] ?>"><?= $document["nom"]; ?></a>
     </li>
 

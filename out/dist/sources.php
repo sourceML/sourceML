@@ -42,21 +42,6 @@
   endif;
 
 ?>
-
-<!--[if IE]>
-<script type="text/javascript" event="FSCommand(command,args)" for="player">
-  eval(args);
-</script>
-<![endif]-->
-
-<object id="player" type="application/x-shockwave-flash" data="<?= $this->path("libs")."player_mp3_js.swf" ?>" width="1" height="1">
-  <param name="movie" value="<?= $this->path("libs")."player_mp3_js.swf" ?>" />
-  <param name="AllowScriptAccess" value="always" />
-  <param name="FlashVars" value="listener=player_listener&amp;interval=500" />
-  <param name="bgcolor" value="#050505" />
-  <param name="wmode" value="transparent" />
-</object>
-
         </div>
 
         <div class="clear"><!-- --></div>

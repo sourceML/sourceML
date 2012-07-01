@@ -233,22 +233,23 @@ ul.documents li
 
 .player_progress
 { width: 100%;
-  height: 2px;
+  height: 5px;
   font-size: 1px;
   line-height: 1px;
   overflow: hidden;
   margin: 0px 0px 0px 0px;
   position: relative;
+  cursor: pointer;
 }
 
 .player_progress .loaded
 { width: 0;
-  height: 2px;
+  height: 5px;
 }
 
 .player_progress .position
 { width: 0;
-  height: 2px;
+  height: 5px;
   position: absolute;
   top: 0px;
 }
