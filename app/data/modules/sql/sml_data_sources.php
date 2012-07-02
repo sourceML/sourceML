@@ -378,7 +378,7 @@
         .", date_creation=".$this->eq($source["date_creation"])
         ." WHERE id=".$this->eq($id);
         if(!$sgbd->query($sql)) return false;
-        if(!$this->del_source_groupes($id_source)) return false;
+        if(!$this->del_source_groupes($id)) return false;
         foreach($source["groupes"] as $id_groupe => $groupe)
         { if($groupe["id"] && $groupe["id_groupe_status"])
           { if(!$this->add_source_groupe($id, $groupe["id"], $groupe["id_groupe_status"])) return false;
