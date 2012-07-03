@@ -212,10 +212,10 @@ function get_current_source_id(){
 
 function play_first_source(){
   var FOUND = false;
-  $(".track:not(.track .track)").each(
+  $(".track").not(".pistes .track").not(".derivation .track").each(
     function(){
       if(!FOUND){
-        $(this).find(".documents li").each(
+        $(this).find(".documents li").not(".pistes .documents li").not(".derivation .documents li").each(
           function(){
             if(!FOUND){
               var source_document_id = $(this).attr("id").substring(9);
@@ -242,11 +242,11 @@ function play_next_source(){
       var current_source_id = get_current_source_id();
       if(current_source_id != false){
         var CURRENT_FOUND = false;
-        $(".track:not(.track .track)").each(
+        $(".track").not(".pistes .track").not(".derivation .track").each(
           function(){
             if(!FOUND){
               if(CURRENT_FOUND){
-                $(this).find(".documents li").each(
+                $(this).find(".documents li").not(".pistes .documents li").not(".derivation .documents li").each(
                   function(){
                     if(!FOUND){
                       var source_document_id = $(this).attr("id").substring(9);
@@ -339,7 +339,7 @@ function toggle_derivation_list(id_block){
       dataType: "html",
       success: function(content){
         $("#derivation_list_" + id_block + " .derivation").html(content);
-        init_players("#derivation_list_" + id_block + " .derivation audio");
+        init_players("#derivation_list_" + id_block + " .derivation");
       }
     });
   }

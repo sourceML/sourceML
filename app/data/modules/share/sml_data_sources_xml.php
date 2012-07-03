@@ -157,7 +157,8 @@
             }
           }
           closedir($dh);
-          $OK = @rmdir($derivations_dir) && $OK;
+//          $OK = @rmdir($derivations_dir) && $OK;
+          @rmdir($derivations_dir);
         }
         else $OK = false;
       }

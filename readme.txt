@@ -1,5 +1,5 @@
 
-                         sourceML 0.13.1.dev
+                         sourceML 0.14
 
 
 un CMS en GNU/GPL pour la publication de sources musicales.
@@ -28,7 +28,7 @@ installation rapide :
 
  - l'archive sourceml<version>.tar.gz fourni un dossier sourceml
  - uploadez ce dossier a la racine de votre site
- - le site devrait alors etre accessible a l'URL:
+ - votre installation devrait etre accessible a l'URL:
    http://votre.site.web/sourceml
  - pour une premiere utilisation, vous pouvez vous identifier avec :
      login: user
@@ -45,6 +45,27 @@ developpement sur http://www.sourceml.com
 
 historique des modifications :
 ------------------------------
+
+0.14 :
+------
+
+2 Juillet 2012
+
+mise a jour de jQuery a la version 1.7.2
+le template dist passe de XHTML 1.0 strict a HTML5
+supression des players flash
+la lecture en ligne utilise maintenant les elements audio HTML5
+
+correction de bugs :
+ - ordre de lecture
+ - problemes avec php4
+ - affectation d'un groupe a une source
+
+cette version introduit des changements dans le template
+d'affichage par defaut (template dist).
+plus de details en ligne sur ces modifications :
+
+http://www.sourceml.com/trac/wiki/ModificationsOutDist
 
 
 0.13.1 :
