@@ -49,7 +49,7 @@ historique des modifications :
 0.14 :
 ------
 
-2 Juillet 2012
+4 Juillet 2012
 
 mise a jour de jQuery a la version 1.7.2
 le template dist passe de XHTML 1.0 strict a HTML5
