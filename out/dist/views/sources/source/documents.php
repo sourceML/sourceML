@@ -30,7 +30,7 @@
         <a class="play" href="#"><img src="<?= $this->out_file("icons/play.png") ?>" alt="play" /></a>
         <a class="pause" href="#"><img src="<?= $this->out_file("icons/pause.png") ?>" alt="pause" /></a>
         <a class="stop" href="#"><img src="<?= $this->out_file("icons/stop.png") ?>" alt="stop" /></a>
-        <audio id="audio_<?= $source["id"]."_".$id_document ?>">
+        <audio id="audio_<?= $source["id"]."_".$id_document ?>" preload="none">
           <source src="<?= $document["url"] ?>" type="<?= $audio_type ?>">
         </audio>
       </div>

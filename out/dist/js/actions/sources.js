@@ -69,133 +69,13 @@ function player_listener_update(){
     && (current_audio = $("#audio_" + current_document).get(0))
     && ($("#track_" + source_id + " .player_progress").size())
   ){
-    $("#track_" + source_id + " .player_progress .position:not(#track_" + source_id + " .track .player_progress .position)").css(
-      "width",
-      Math.round((100 * current_audio.currentTime) / current_audio.duration) + "%"
+    $("#track_" + source_id + " .player_progress .position").not(
+      "#track_" + source_id + " .pistes .player_progress .position").not(
+      "#track_" + source_id + " .derivation .player_progress .position").css(
+        "width",
+        Math.round((100 * current_audio.currentTime) / current_audio.duration) + "%"
     );
   }
-}
-
-function gui_state(state){
-  gui_blur();
-  if(current_document != false){
-    var source_id = get_current_source_id();
-    if(state == "playing"){
-      $("#player_" + current_document).find(".play").css("display", "none");
-      $("#player_" + current_document).find(".pause").css("display", "inline");
-      $("#player_" + current_document).find(".stop").css("display", "inline");
-      $("#track_" + source_id).get(0).className = "playing_track";
-    }
-    else if(state == "paused"){
-      $("#player_" + current_document).find(".play").get(0).style.display = "inline";
-      $("#player_" + current_document).find(".pause").get(0).style.display = "none";
-      $("#player_" + current_document).find(".stop").get(0).style.display = "inline";
-      $("#track_" + source_id).get(0).className = "playing_track";
-    }
-    else if(state == "stoped"){
-      $("#player_" + current_document).find(".play").get(0).style.display = "inline";
-      $("#player_" + current_document).find(".pause").get(0).style.display = "none";
-      $("#player_" + current_document).find(".stop").get(0).style.display = "none";
-      $("#track_" + source_id).get(0).className = "track";
-      $("#track_" + source_id + " .player_progress .position:not(#track_" + source_id + " .track .player_progress .position)").css("width", "0%");
-    }
-  }
-}
-
-function gui_blur(){
-  if((current_document != false) && $("#player_" + current_document).size()){
-    $("#player_" + current_document).find(".play").get(0).blur();
-    $("#player_" + current_document).find(".pause").get(0).blur();
-    $("#player_" + current_document).find(".stop").get(0).blur();
-  }
-}
-
-function play(id_document){
-  if(current_document == id_document){
-    if($("#audio_" + current_document).get(0).paused){
-      $("#audio_" + current_document).get(0).play();
-    }
-  }
-  else{
-    if(current_document != false){
-      var audio_elt = $("#audio_" + current_document).get(0);
-      audio_elt.pause();
-      audio_elt.currentTime = 0;
-      gui_state("stoped");
-    }
-    current_document = id_document;
-    setTimeout("_play(0)", 1000);
-  }
-  gui_state("playing");
-}
-
-function play_source_from(id_source, position){
-  if(
-       (current_document != false)
-    && (current_source_id = get_current_source_id())
-    && (id_source == current_source_id)
-  ){
-    _play(0 + position);
-  }
-  else{
-    stop();
-    var FOUND = false;
-    $("#track_" + id_source + " .documents li").each(
-      function(){
-        if(!FOUND){
-          var source_document_id = $(this).attr("id").substring(9);
-          if(source_document_id.length > 0){
-            if($("#player_" + source_document_id).size()){
-              FOUND = true;
-              current_document = source_document_id;
-              setTimeout("_play(" + position + ")", 1000);
-            }
-          }
-        }
-      }
-    );
-  }
-  gui_state("playing");
-}
-
-function _play(position){
-  if(current_document != false){
-    var audio_elt = $("#audio_" + current_document).get(0);
-    audio_elt.pause();
-    audio_elt.currentTime = position ? (position * audio_elt.duration) / 100 : 0;
-    audio_elt.play();
-  }
-}
-
-function pause(){
-  if(current_document != false){
-    var audio_elt = $("#audio_" + current_document).get(0);
-    audio_elt.pause();
-    gui_state("paused");
-  }
-}
-
-function stop(){
-  if(current_document != false){
-    var audio_elt = $("#audio_" + current_document).get(0);
-    audio_elt.pause();
-    audio_elt.currentTime = 0;
-    gui_state("stoped");
-    current_document = false;
-  }
-  autoplay_next = false;
-}
-
-function play_all(){
-  autoplay_next = play_first_source();
-}
-
-function track_ended(){
-  gui_state("stoped");
-  var current_audio = $("#audio_" + current_document).get(0);
-  current_audio.pause();
-  if(current_audio.currentTime) current_audio.currentTime = 0;
-  if(autoplay_next) autoplay_next = play_next_source();
 }
 
 function get_current_source_id(){
@@ -208,6 +88,10 @@ function get_current_source_id(){
     }
   }
   return false;
+}
+
+function play_all(){
+  autoplay_next = play_first_source();
 }
 
 function play_first_source(){
@@ -272,6 +156,150 @@ function play_next_source(){
     }
   }
   return FOUND;
+}
+
+function play(id_document){
+  if(current_document == id_document){
+    if($("#audio_" + current_document).get(0).paused){
+      gui_state("playing");
+      $("#audio_" + current_document).get(0).play();
+    }
+  }
+  else{
+    if(current_document != false){
+      var audio_elt = $("#audio_" + current_document).get(0);
+      audio_elt.pause();
+      audio_elt.currentTime = 0;
+      gui_state("stoped");
+    }
+    current_document = id_document;
+    _play(0);
+  }
+}
+
+function play_source_from(id_source, position){
+  if(
+       (current_document != false)
+    && (current_source_id = get_current_source_id())
+    && (id_source == current_source_id)
+  ){
+    _play(position);
+  }
+  else{
+    stop();
+    var FOUND = false;
+    $("#track_" + id_source + " .documents li").each(
+      function(){
+        if(!FOUND){
+          var source_document_id = $(this).attr("id").substring(9);
+          if(source_document_id.length > 0){
+            if($("#player_" + source_document_id).size()){
+              FOUND = true;
+              current_document = source_document_id;
+              _play(position);
+            }
+          }
+        }
+      }
+    );
+  }
+}
+
+function _play(position){
+  if(current_document != false){
+    var audio_elt = $("#audio_" + current_document).get(0);
+    audio_elt.preload = "auto";
+    audio_elt.addEventListener("loadeddata", track_loadeddata, false);
+    audio_elt.addEventListener("canplaythrough", track_canplaythrough, false);
+    audio_elt.position = position;
+    audio_elt.load();
+    gui_state("loading");
+  }
+}
+
+function track_loadeddata(event){
+  var audio_elt = event.target;
+  audio_elt.removeEventListener("loadeddata", track_loadeddata, false);
+  if(current_document != false){
+    audio_elt.currentTime = audio_elt.position ? (audio_elt.position * audio_elt.duration) / 100 : 0;
+  }
+}
+
+function track_canplaythrough(event){
+  var audio_elt = event.target;
+  audio_elt.removeEventListener("canplaythrough", track_canplaythrough, false);
+  audio_elt.play();
+  gui_state("playing");
+}
+
+function pause(){
+  if(current_document != false){
+    var audio_elt = $("#audio_" + current_document).get(0);
+    audio_elt.pause();
+    gui_state("paused");
+  }
+}
+
+function stop(){
+  if(current_document != false){
+    var audio_elt = $("#audio_" + current_document).get(0);
+    audio_elt.pause();
+    audio_elt.currentTime = 0;
+    gui_state("stoped");
+    current_document = false;
+  }
+  autoplay_next = false;
+}
+
+function track_ended(){
+  gui_state("stoped");
+  var current_audio = $("#audio_" + current_document).get(0);
+  current_audio.pause();
+  if(current_audio.currentTime) current_audio.currentTime = 0;
+  if(autoplay_next) autoplay_next = play_next_source();
+}
+
+function gui_state(state){
+  gui_blur();
+  if(current_document != false){
+    var source_id = get_current_source_id();
+    $("#track_" + source_id).removeClass("loading_player");
+    if(state == "playing"){
+      $("#player_" + current_document).find(".play").css("display", "none");
+      $("#player_" + current_document).find(".pause").css("display", "inline");
+      $("#player_" + current_document).find(".stop").css("display", "inline");
+      $("#track_" + source_id).removeClass("track");
+      $("#track_" + source_id).addClass("playing_track");
+    }
+    else if(state == "paused"){
+      $("#player_" + current_document).find(".play").get(0).style.display = "inline";
+      $("#player_" + current_document).find(".pause").get(0).style.display = "none";
+      $("#player_" + current_document).find(".stop").get(0).style.display = "inline";
+      $("#track_" + source_id).removeClass("track");
+      $("#track_" + source_id).addClass("playing_track");
+    }
+    else if(state == "stoped"){
+      $("#player_" + current_document).find(".play").get(0).style.display = "inline";
+      $("#player_" + current_document).find(".pause").get(0).style.display = "none";
+      $("#player_" + current_document).find(".stop").get(0).style.display = "none";
+      $("#track_" + source_id).removeClass("playing_track");
+      $("#track_" + source_id).addClass("track");
+      $("#track_" + source_id + " .player_progress .position").not(
+        "#track_" + source_id + " .pistes .player_progress .position").not(
+        "#track_" + source_id + " .derivation .player_progress .position").css("width", "0%");
+    }
+    else if(state == "loading"){
+      $("#track_" + source_id).addClass("loading_player");
+    }
+  }
+}
+
+function gui_blur(){
+  if((current_document != false) && $("#player_" + current_document).size()){
+    $("#player_" + current_document).find(".play").get(0).blur();
+    $("#player_" + current_document).find(".pause").get(0).blur();
+    $("#player_" + current_document).find(".stop").get(0).blur();
+  }
 }
 
 // -----------------------------------------------------------------
