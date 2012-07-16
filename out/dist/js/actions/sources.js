@@ -211,9 +211,10 @@ function _play(position){
     audio_elt.preload = "auto";
     audio_elt.addEventListener("loadeddata", track_loadeddata, false);
     audio_elt.addEventListener("canplaythrough", track_canplaythrough, false);
+    audio_elt.addEventListener("playing", track_playing, false);
+    gui_state("loading");
     audio_elt.position = position;
     audio_elt.load();
-    gui_state("loading");
   }
 }
 
@@ -229,6 +230,11 @@ function track_canplaythrough(event){
   var audio_elt = event.target;
   audio_elt.removeEventListener("canplaythrough", track_canplaythrough, false);
   audio_elt.play();
+}
+
+function track_playing(event){
+  var audio_elt = event.target;
+  audio_elt.removeEventListener("playing", track_playing, false);
   gui_state("playing");
 }
 
