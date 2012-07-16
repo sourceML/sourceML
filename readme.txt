@@ -1,5 +1,5 @@
 
-                         sourceML 0.14
+                         sourceML 0.14.1
 
 
 un CMS en GNU/GPL pour la publication de sources musicales.
@@ -45,6 +45,16 @@ developpement sur http://www.sourceml.com
 
 historique des modifications :
 ------------------------------
+
+0.14.1 :
+--------
+
+16 Juillet 2012
+
+petite correction sur le player audio, pour faire
+terminer son etat "en chargement" sur l'evt audio
+"playing" (au lieu de "canplaythrough")
+
 
 0.14 :
 ------
